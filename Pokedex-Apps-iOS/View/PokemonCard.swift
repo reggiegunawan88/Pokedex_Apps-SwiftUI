@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct PokemonCard: View {
+    let pokemonData : PokemonData
     var body: some View {
         ZStack{
             VStack(alignment: .leading) {
-                Text("Bulbasaur")
+                Text(pokemonData.name)
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(.top,10)
                     .padding(.leading)
                 
                 HStack{
-                    Text("Poison")
+                    Text(pokemonData.type)
                         .font(.subheadline).bold()
                         .foregroundColor(.white)
                         .padding(.horizontal, 15)
@@ -28,7 +29,7 @@ struct PokemonCard: View {
                                 .fill(Color.white.opacity(0.25))
                         )
                         .frame(width: 100, height: 25)
-                    Image("goku-hello")
+                    Image(pokemonData.imageURL)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 68, height: 68)
@@ -45,6 +46,6 @@ struct PokemonCard: View {
 
 struct PokemonCard_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCard()
+        PokemonCard(pokemonData: MOCK_POKEMONDATA[0])
     }
 }
