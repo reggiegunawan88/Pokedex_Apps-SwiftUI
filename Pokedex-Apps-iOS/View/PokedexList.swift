@@ -9,11 +9,18 @@ import SwiftUI
 
 struct PokedexList: View {
     // apply grid for pokemon list
+    private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
         NavigationView{
             ScrollView{
-                
+                LazyVGrid(columns: gridItems, spacing:15) {
+                    ForEach(0..<150) { _ in
+                        PokemonCard()
+                    }
+                }
             }
+            .navigationTitle("Pokedex")
         }
     }
 }
