@@ -2,7 +2,7 @@
 //  PokedexList.swift
 //  Pokedex-Apps-iOS
 //
-//  Created by TI Digital on 06/06/21.
+//  Created by Reggie Gunawan on 06/06/21.
 //
 
 import SwiftUI
@@ -17,7 +17,10 @@ struct PokedexList: View {
             ScrollView{
                 LazyVGrid(columns: gridItems, spacing:15) {
                     ForEach(viewModel.pokemon) { pokemon in
-                        PokemonCard(pokemonData: pokemon, pokemonViewModel: viewModel)
+                        NavigationLink(destination: PokemonDetails(pokemonData: pokemon)){
+                            PokemonCard(pokemonData: pokemon, pokemonViewModel: viewModel)
+                        }
+                        
                     }
                 }
                 .padding(.top, 15)

@@ -2,7 +2,7 @@
 //  PokemonCard.swift
 //  Pokedex-Apps-iOS
 //
-//  Created by TI Digital on 06/06/21.
+//  Created by Reggie Gunawan on 06/06/21.
 //
 
 import SwiftUI
@@ -30,8 +30,6 @@ struct PokemonCard: View {
                         .padding(.top,10)
                         .padding(.leading)
                 }
-                
-                
                 
                 HStack{
                     Text(pokemonData.type)
