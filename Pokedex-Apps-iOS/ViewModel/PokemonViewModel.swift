@@ -22,15 +22,33 @@ class PokemonViewModel : ObservableObject {
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error) in
             guard let cleanData = data?.parseData(removeString: "null,") else{ return }
-            print("parsed data: " ,cleanData)
-            do{
-                let decodedData = try JSONDecoder().decode([PokemonData].self, from: cleanData)
-                self.pokemon = decodedData
-            } catch{
-                print("error msg:",error)
+
+            DispatchQueue.main.async {
+                do{
+                    let pokemon = try JSONDecoder().decode([PokemonData].self, from: cleanData)
+                    self.pokemon = pokemon
+                } catch{
+                    print("error msg:",error)
+                }
             }
+           
         }
         task.resume()
+    }
+    
+    func detectBackgroundColor(forType type: String) -> UIColor {
+        switch type {
+        case "fire": return .systemRed
+        case "water": return .systemBlue
+        case "poison": return .systemGreen
+        case "electric": return .systemYellow
+        case "psychic": return .systemPurple
+        case "normal": return .systemGray
+        case "ground": return .brown
+        case "flying": return .systemTeal
+        case "fairy": return .systemPink
+        default: return .systemIndigo
+        }
     }
 }
 

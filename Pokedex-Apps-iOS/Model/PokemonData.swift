@@ -15,8 +15,8 @@ struct PokemonData : Decodable, Identifiable {
 }
 
 // for mocking data only
-//let MOCK_POKEMONDATA: [PokemonData] = [
-//    .init(id: 1, name: "Bulbasaur", type: "poison"),
+let MOCK_POKEMONDATA: [PokemonData] = [
+    .init(id: 1, name: "Bulbasaur", imageUrl: "goku-hello" ,type: "poison"),
 //    .init(id: 2, name: "Venusaur", type: "water"),
 //    .init(id: 3, name: "Ivysaur", type: "fire")
-//]
+]
