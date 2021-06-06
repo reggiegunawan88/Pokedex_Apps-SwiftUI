@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A50AE8D0266CABDD0026A4D8 /* Pokedex-Apps-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex-Apps-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50AE8D0266CABDD0026A4D8 /* Pokedex by Reggie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex by Reggie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50AE8D3266CABDD0026A4D8 /* Pokedex_Apps_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex_Apps_iOSApp.swift; sourceTree = "<group>"; };
 		A50AE8D5266CABDD0026A4D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A50AE8D7266CABDE0026A4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		A50AE8D1266CABDD0026A4D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A50AE8D0266CABDD0026A4D8 /* Pokedex-Apps-iOS.app */,
+				A50AE8D0266CABDD0026A4D8 /* Pokedex by Reggie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 				A5120AA1266CED57000AE2AF /* Kingfisher */,
 			);
 			productName = "Pokedex-Apps-iOS";
-			productReference = A50AE8D0266CABDD0026A4D8 /* Pokedex-Apps-iOS.app */;
+			productReference = A50AE8D0266CABDD0026A4D8 /* Pokedex by Reggie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +329,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reggiegunawan.app.Pokedex-Apps-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pokedex by Reggie";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -350,7 +350,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "reggiegunawan.app.Pokedex-Apps-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pokedex by Reggie";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
