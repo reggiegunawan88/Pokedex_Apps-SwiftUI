@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,10 @@
 		A50AE8D8266CABDE0026A4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE8D7266CABDE0026A4D8 /* Assets.xcassets */; };
 		A50AE8DB266CABDE0026A4D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE8DA266CABDE0026A4D8 /* Preview Assets.xcassets */; };
 		A50AE8E6266CB9770026A4D8 /* PokemonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE8E5266CB9770026A4D8 /* PokemonCard.swift */; };
+		A5120AA2266CED57000AE2AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A5120AA1266CED57000AE2AF /* Kingfisher */; };
 		A556F4AE266CBFCE004C1AA7 /* PokedexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A556F4AD266CBFCE004C1AA7 /* PokedexList.swift */; };
 		A556F4B0266CC55B004C1AA7 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A556F4AF266CC55B004C1AA7 /* PokemonData.swift */; };
+		A556F4B2266CCC8E004C1AA7 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A556F4B1266CCC8E004C1AA7 /* PokemonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		A50AE8E5266CB9770026A4D8 /* PokemonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCard.swift; sourceTree = "<group>"; };
 		A556F4AD266CBFCE004C1AA7 /* PokedexList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexList.swift; sourceTree = "<group>"; };
 		A556F4AF266CC55B004C1AA7 /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
+		A556F4B1266CCC8E004C1AA7 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5120AA2266CED57000AE2AF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +102,7 @@
 		A50AE8E4266CB9400026A4D8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A556F4B1266CCC8E004C1AA7 /* PokemonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -118,6 +123,9 @@
 			dependencies = (
 			);
 			name = "Pokedex-Apps-iOS";
+			packageProductDependencies = (
+				A5120AA1266CED57000AE2AF /* Kingfisher */,
+			);
 			productName = "Pokedex-Apps-iOS";
 			productReference = A50AE8D0266CABDD0026A4D8 /* Pokedex-Apps-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +153,9 @@
 				Base,
 			);
 			mainGroup = A50AE8C7266CABDD0026A4D8;
+			packageReferences = (
+				A5120AA0266CED57000AE2AF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A50AE8D1266CABDD0026A4D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,6 +184,7 @@
 			files = (
 				A556F4AE266CBFCE004C1AA7 /* PokedexList.swift in Sources */,
 				A50AE8D6266CABDD0026A4D8 /* ContentView.swift in Sources */,
+				A556F4B2266CCC8E004C1AA7 /* PokemonViewModel.swift in Sources */,
 				A50AE8E6266CB9770026A4D8 /* PokemonCard.swift in Sources */,
 				A50AE8D4266CABDD0026A4D8 /* Pokedex_Apps_iOSApp.swift in Sources */,
 				A556F4B0266CC55B004C1AA7 /* PokemonData.swift in Sources */,
@@ -362,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A5120AA0266CED57000AE2AF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A5120AA1266CED57000AE2AF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5120AA0266CED57000AE2AF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A50AE8C8266CABDD0026A4D8 /* Project object */;
 }

@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PokemonCard: View {
     let pokemonData : PokemonData
     var body: some View {
         ZStack{
             VStack(alignment: .leading) {
-                Text(pokemonData.name)
+                Text(pokemonData.name.capitalized)
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding(.top,10)
@@ -29,7 +30,7 @@ struct PokemonCard: View {
                                 .fill(Color.white.opacity(0.25))
                         )
                         .frame(width: 100, height: 25)
-                    Image(pokemonData.imageURL)
+                    KFImage(URL(string: pokemonData.imageUrl))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 68, height: 68)
@@ -44,8 +45,8 @@ struct PokemonCard: View {
     }
 }
 
-struct PokemonCard_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonCard(pokemonData: MOCK_POKEMONDATA[0])
-    }
-}
+//struct PokemonCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PokemonCard(pokemonData: MOCK_POKEMONDATA[0])
+//    }
+//}
