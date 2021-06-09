@@ -17,15 +17,14 @@ struct PokedexList: View {
             ScrollView{
                 LazyVGrid(columns: gridItems, spacing:15) {
                     ForEach(viewModel.pokemon) { pokemon in
-                        NavigationLink(destination: PokemonDetails(pokemonData: pokemon)){
-                            EmptyView()
+                        NavigationLink(destination: PokemonDetails(pokemonData: pokemon, pokemonViewModel: viewModel)){
                             PokemonCard(pokemonData: pokemon, pokemonViewModel: viewModel)
                         }
                     }
                 }
                 .padding(.top, 15)
             }
-            .navigationTitle("Pokedex")
+            .navigationTitle("POKEDEX")
         }
         .accentColor(.white)
     }

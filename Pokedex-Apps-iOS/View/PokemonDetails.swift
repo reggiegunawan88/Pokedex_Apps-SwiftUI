@@ -10,71 +10,111 @@ import Kingfisher
 
 struct PokemonDetails: View {
     let pokemonData : PokemonData
-//    let pokemonViewModel: PokemonViewModel
-//    let backgroundColor: Color
+    let pokemonViewModel: PokemonViewModel
+    let backgroundColor: Color
     
-//    init(pokemonData: PokemonData, pokemonViewModel: PokemonViewModel) {
-//        self.pokemonData = pokemonData
-//        self.pokemonViewModel = pokemonViewModel
-//        self.backgroundColor = Color(pokemonViewModel.detectBackgroundColor(forType: pokemonData.type))
-//    }
+    init(pokemonData: PokemonData, pokemonViewModel: PokemonViewModel) {
+        self.pokemonData = pokemonData
+        self.pokemonViewModel = pokemonViewModel
+        self.backgroundColor = Color(pokemonViewModel.detectBackgroundColor(forType: pokemonData.type))
+    }
     
     var body: some View {
-        ZStack(alignment: .top){
-            Color(.green).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        ZStack{
+            backgroundColor.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack{
-                Image("bulbasaur")
-//                KFImage(URL(string: pokemonData.imageUrl))
+                KFImage(URL(string: pokemonData.imageUrl))
                     .resizable()
                     .offset(y: 25)
                     .frame(width: 150, height: 150)
-                    .padding(.top, 50)
                     .zIndex(1)
                 VStack(alignment: .leading){
-                    
-                    /* Name, types, and desc section */
-                    VStack(spacing: 20){
+                    /* Description section */
+                    VStack(spacing: 15){
+                        Text("#" + String(pokemonData.id))
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.gray)
+                            .padding(.top, 20)
                         Text(pokemonData.name.capitalized)
                             .font(.largeTitle)
                             .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
-                        HStack{
-                            // applies hstack if multiple types exist
-                            Text(pokemonData.type.uppercased())
-                                .font(.title2).bold()
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 25)
-                                .padding(.vertical, 10)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color(.green)).opacity(0.3)
-                                )
-                                .frame(width: 200, height: 25)
-                                .shadow(color: Color(.green), radius: 5)
+                        Text(pokemonData.type.uppercased())
+                            .font(.title2).bold()
+                            .foregroundColor(.black)
+                            .padding(.horizontal, 25)
+                            .padding(.vertical, 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(backgroundColor).opacity(0.3)
+                            )
+                            .frame(width: 200, height: 25)
+                            .shadow(color: Color(.green), radius: 5)
+                            .padding(.vertical, 10)
+                        HStack(spacing: 20){
+                            VStack{
+                                HStack(alignment:.center, spacing: 5){
+                                    Text(String(pokemonData.height/10))
+                                        .font(.title)
+                                    Text("KG")
+                                        .font(.subheadline)
+                                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                        .foregroundColor(.gray)
+                                }
+                                Text("Height")
+                                    .font(.subheadline)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(Color.gray)
+                            }
+                            
+                            VStack{
+                                HStack(alignment:.center, spacing: 5){
+                                    Text(String(pokemonData.weight/10))
+                                        .font(.title)
+                                    Text("METER")
+                                        .font(.subheadline)
+                                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                        .foregroundColor(.gray)
+
+                                }
+                                
+                                Text("Weight")
+                                    .font(.subheadline)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(Color.gray)
+                            }
+
                         }
-                        Text("Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger.")
+                        .padding(.vertical, 15)
+                        .frame(maxWidth: .infinity)
+                        
+                        Text(pokemonData.description)
                             .foregroundColor(Color(.gray)).bold()
-                            .padding()
-                            .padding(.top,20)
+                            .padding(.horizontal, 15)
                     }
-                    .padding(.top, 50)
+                    .padding(.top, 10)
                     
                     /* Stats Section */
                     VStack(alignment: .leading){
                         HStack{
                             Text("STATS")
-                                .font(.headline)
-                                .padding()
-                            
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                                .padding(.top, 10)
+                                .padding(.horizontal, 20)
                         }
-                        VStack(spacing: 15){
-                            ForEach (0..<5) { _ in
-                                StatList(statusName: "HP", value: 3/10)
+                        VStack(spacing: 5){
+                            ForEach (0..<2) { i in
+                                if( i == 0){
+                                    StatList(statusName: "atk", value: pokemonData.attack/100, color: backgroundColor)
+                                }
+                                else{
+                                    StatList(statusName: "def", value: pokemonData.defense/100, color: backgroundColor)
+                                }
                             }
                         }
                         
                     }
-                    .padding()
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -87,37 +127,41 @@ struct PokemonDetails: View {
     }
 }
 
-// status list view
+// stats list view struct
 struct StatList : View {
     @State var statusName : String
     @State var value : Float
+    @State var color : Color
     var body: some View {
         HStack {
             Text(statusName.uppercased())
                 .font(.subheadline)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color.gray)
             .padding(.horizontal, 20)
-         Text(String(value))
-            Meterbar(value: $value).frame(height: 10)
-                .padding(.trailing, 15)
+         Text(String(Int(value*100)))
+            Meterbar(value: $value, color: $color).frame(height: 10)
+                .padding(.trailing, 20)
         }
         .padding(.horizontal, 10)
     }
 }
 
-// status meterbar view
+// stats meterbar struct
 struct Meterbar : View {
     @Binding var value : Float
+    @Binding var color : Color
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading){
                 // meterbar placeholder
                 Rectangle().frame(width: geometry.size.width, height: geometry.size.height)
                     .opacity(0.3)
-                    .foregroundColor(Color(UIColor.systemGray2))
+                    .foregroundColor(Color(.systemGray))
                 
                 // meterbar fill
                 Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(Color.green)
+                    .foregroundColor(color)
                     .animation(.linear)
                     .cornerRadius(45, corners: .allCorners)
             }
@@ -146,8 +190,11 @@ extension View {
     }
 }
 
-struct PokemonDetails_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonDetails(pokemonData: MOCK_POKEMONDATA[0])
-    }
-}
+//struct PokemonDetails_Previews: PreviewProvider {
+//    static var previews: some View {
+//@ObservedObject var viewModel = PokemonViewModel()
+//
+//
+//        PokemonDetails(pokemonData: self.pokemonData, pokemonViewModel: <#T##PokemonViewModel#>)
+//    }
+//}

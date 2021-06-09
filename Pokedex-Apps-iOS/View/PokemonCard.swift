@@ -32,10 +32,10 @@ struct PokemonCard: View {
                 }
                 
                 HStack{
-                    Text(pokemonData.type)
-                        .font(.subheadline).bold()
+                    Text(pokemonData.type.uppercased())
+                        .font(.caption)
                         .foregroundColor(.white)
-                        .padding(.horizontal, 15)
+                        .padding(.horizontal, 10)
                         .padding(.vertical, 8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
