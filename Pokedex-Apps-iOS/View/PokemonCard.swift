@@ -34,6 +34,7 @@ struct PokemonCard: View {
                 HStack{
                     Text(pokemonData.type.uppercased())
                         .font(.caption)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 8)

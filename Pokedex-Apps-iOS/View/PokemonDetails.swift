@@ -41,16 +41,17 @@ struct PokemonDetails: View {
                             .foregroundColor(.black)
                         Text(pokemonData.type.uppercased())
                             .font(.title2).bold()
-                            .foregroundColor(.black)
-                            .padding(.horizontal, 25)
-                            .padding(.vertical, 10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(backgroundColor).opacity(0.3)
-                            )
-                            .frame(width: 200, height: 25)
-                            .shadow(color: Color(.green), radius: 5)
-                            .padding(.vertical, 10)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 15)
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 20)
+//                                    .fill(backgroundColor).opacity(0.3)
+//                            )
+                            .frame(width: 150, height: 40)
+                            .background(backgroundColor)
+                            .cornerRadius(20)
+                            .shadow(color: backgroundColor ,radius: 5)
                         HStack(spacing: 20){
                             VStack{
                                 HStack(alignment:.center, spacing: 5){
